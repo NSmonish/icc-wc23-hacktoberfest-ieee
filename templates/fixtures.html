@@ -11,7 +11,36 @@
 {% block body %}
     <div class="container">
         <h1 class="section-heading">Fixtures</h1>
-        <div class="matchs" id="match-date"></div>
+        <div class="matchs" id="match-date">
+            {% for row in rows %}
+            <div class="match">
+                <div class="match-info">
+                    <h4 class="group">{{row["venue"]}}</h4>
+                    <h4><span class="badge">{{row["matchNumber"]}}</span> </h4>
+                </div>
+                <div class="flags">
+                    <div class="home-flag">
+                        <img src="" class="flag" />
+                    <h3 class="home-team">{{row["team_1"]}}</h3>
+                    </div>
+                    <span class="vs">
+                    VS
+                    </span>
+                    <div class="away-flag">
+                    <img src="" class="flag" />
+                    <h3 class="home-team">{{row["team_2"]}}</h3>
+                    </div>
+                </div>
+                <div class="time-area">
+                    <div class="time">
+                        <h4 class="month">{{row["day_month"]}}</h4>
+                        <h4 class="date">{{row["date"]}}</h4>
+                    </div>
+                    <h4 class="match-time">{{row["time"]}}</h4>
+                </div>
+             </div>
+        </div>
+        {% endfor %}
     </div>
     <div class="scroll-top">
         <img src="arrow.png" alt="arrow" />
